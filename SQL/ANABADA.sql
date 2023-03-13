@@ -5,21 +5,21 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema anabada
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema anabada
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `anabada` DEFAULT CHARACTER SET utf8 ;
+USE `anabada` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `anabada`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`user` ;
+DROP TABLE IF EXISTS `anabada`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+CREATE TABLE IF NOT EXISTS `anabada`.`user` (
   `user_email` VARCHAR(50) NOT NULL COMMENT '유저 이메일',
   `user_nick` VARCHAR(100) NOT NULL COMMENT '닉네임',
   `user_pwd` VARCHAR(100) NOT NULL COMMENT '비밀번호',
@@ -39,11 +39,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`character`
+-- Table `anabada`.`character`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`character` ;
+DROP TABLE IF EXISTS `anabada`.`character` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`character` (
+CREATE TABLE IF NOT EXISTS `anabada`.`character` (
   `char_id` VARCHAR(20) NOT NULL,
   `char_name` VARCHAR(45) NOT NULL,
   `char_date` DATETIME NULL DEFAULT now(),
@@ -56,11 +56,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`user_character`
+-- Table `anabada`.`user_character`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`user_character` ;
+DROP TABLE IF EXISTS `anabada`.`user_character` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`user_character` (
+CREATE TABLE IF NOT EXISTS `anabada`.`user_character` (
   `uChar_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `character_char_id` VARCHAR(20) NOT NULL,
@@ -69,23 +69,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user_character` (
   INDEX `fk_user_character_character1_idx` (`character_char_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_character_user`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_character_character1`
     FOREIGN KEY (`character_char_id`)
-    REFERENCES `mydb`.`character` (`char_id`)
+    REFERENCES `anabada`.`character` (`char_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`char_temp`
+-- Table `anabada`.`char_temp`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`char_temp` ;
+DROP TABLE IF EXISTS `anabada`.`char_temp` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`char_temp` (
+CREATE TABLE IF NOT EXISTS `anabada`.`char_temp` (
   `cTemp_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `cTemp_name` VARCHAR(45) NOT NULL,
@@ -98,18 +98,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`char_temp` (
   INDEX `fk_char_temp_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_char_temp_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`egg`
+-- Table `anabada`.`egg`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`egg` ;
+DROP TABLE IF EXISTS `anabada`.`egg` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`egg` (
+CREATE TABLE IF NOT EXISTS `anabada`.`egg` (
   `egg_id` VARCHAR(20) NOT NULL,
   `egg_file` VARCHAR(100) NULL,
   PRIMARY KEY (`egg_id`))
@@ -117,11 +117,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`inquiry`
+-- Table `anabada`.`inquiry`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`inquiry` ;
+DROP TABLE IF EXISTS `anabada`.`inquiry` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`inquiry` (
+CREATE TABLE IF NOT EXISTS `anabada`.`inquiry` (
   `inq_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `inq_category` VARCHAR(20) NOT NULL,
@@ -133,18 +133,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`inquiry` (
   INDEX `fk_inquiry_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_inquiry_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`report`
+-- Table `anabada`.`report`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`report` ;
+DROP TABLE IF EXISTS `anabada`.`report` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`report` (
+CREATE TABLE IF NOT EXISTS `anabada`.`report` (
   `report_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `report_reported` VARCHAR(45) NOT NULL,
@@ -157,18 +157,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`report` (
   INDEX `fk_report_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_report_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`file`
+-- Table `anabada`.`file`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`file` ;
+DROP TABLE IF EXISTS `anabada`.`file` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`file` (
+CREATE TABLE IF NOT EXISTS `anabada`.`file` (
   `file_id` VARCHAR(20) NOT NULL,
   `board_status` VARCHAR(45) NULL,
   `board_no` VARCHAR(20) NULL,
@@ -179,11 +179,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`chatRoom`
+-- Table `anabada`.`chatRoom`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`chatRoom` ;
+DROP TABLE IF EXISTS `anabada`.`chatRoom` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`chatRoom` (
+CREATE TABLE IF NOT EXISTS `anabada`.`chatRoom` (
   `chatRoom_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `chatRoom_date` DATETIME NULL DEFAULT now(),
@@ -191,18 +191,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`chatRoom` (
   INDEX `fk_chatRoom_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_chatRoom_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`chat`
+-- Table `anabada`.`chat`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`chat` ;
+DROP TABLE IF EXISTS `anabada`.`chat` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`chat` (
+CREATE TABLE IF NOT EXISTS `anabada`.`chat` (
   `chat_id` VARCHAR(20) NOT NULL,
   `chatRoom_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
@@ -213,23 +213,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`chat` (
   INDEX `fk_chat_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_chat_chatRoom1`
     FOREIGN KEY (`chatRoom_id`)
-    REFERENCES `mydb`.`chatRoom` (`chatRoom_id`)
+    REFERENCES `anabada`.`chatRoom` (`chatRoom_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_chat_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`category`
+-- Table `anabada`.`category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`category` ;
+DROP TABLE IF EXISTS `anabada`.`category` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`category` (
+CREATE TABLE IF NOT EXISTS `anabada`.`category` (
   `category_id` VARCHAR(20) NOT NULL,
   `category_main` VARCHAR(45) NOT NULL,
   `category_mid` VARCHAR(45) NULL,
@@ -239,11 +239,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`used_buy`
+-- Table `anabada`.`used_buy`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`used_buy` ;
+DROP TABLE IF EXISTS `anabada`.`used_buy` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`used_buy` (
+CREATE TABLE IF NOT EXISTS `anabada`.`used_buy` (
   `uBuy_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `category_id` VARCHAR(20) NOT NULL,
@@ -255,23 +255,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`used_buy` (
   INDEX `fk_used_buy_category1_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `fk_used_buy_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_used_buy_category1`
     FOREIGN KEY (`category_id`)
-    REFERENCES `mydb`.`category` (`category_id`)
+    REFERENCES `anabada`.`category` (`category_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`location`
+-- Table `anabada`.`location`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`location` ;
+DROP TABLE IF EXISTS `anabada`.`location` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`location` (
+CREATE TABLE IF NOT EXISTS `anabada`.`location` (
   `loc_id` VARCHAR(20) NOT NULL,
   `loc_name` VARCHAR(45) NOT NULL,
   `loc_lat` DOUBLE NOT NULL,
@@ -281,11 +281,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`user_location`
+-- Table `anabada`.`user_location`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`user_location` ;
+DROP TABLE IF EXISTS `anabada`.`user_location` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`user_location` (
+CREATE TABLE IF NOT EXISTS `anabada`.`user_location` (
   `uloc_id` VARCHAR(20) NOT NULL,
   `loc_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
@@ -294,23 +294,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user_location` (
   INDEX `fk_user_location_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_user_location_location1`
     FOREIGN KEY (`loc_id`)
-    REFERENCES `mydb`.`location` (`loc_id`)
+    REFERENCES `anabada`.`location` (`loc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_location_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`sale_location`
+-- Table `anabada`.`sale_location`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`sale_location` ;
+DROP TABLE IF EXISTS `anabada`.`sale_location` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`sale_location` (
+CREATE TABLE IF NOT EXISTS `anabada`.`sale_location` (
   `sloc_id` VARCHAR(20) NOT NULL,
   `loc_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
@@ -319,23 +319,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`sale_location` (
   INDEX `fk_sale_location_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_sale_location_location1`
     FOREIGN KEY (`loc_id`)
-    REFERENCES `mydb`.`location` (`loc_id`)
+    REFERENCES `anabada`.`location` (`loc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_sale_location_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`used`
+-- Table `anabada`.`used`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`used` ;
+DROP TABLE IF EXISTS `anabada`.`used` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`used` (
+CREATE TABLE IF NOT EXISTS `anabada`.`used` (
   `used_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `category_id` VARCHAR(20) NOT NULL,
@@ -354,33 +354,33 @@ CREATE TABLE IF NOT EXISTS `mydb`.`used` (
   INDEX `fk_used_sale_location1_idx` (`sloc_id` ASC) VISIBLE,
   CONSTRAINT `fk_used_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_used_category1`
     FOREIGN KEY (`category_id`)
-    REFERENCES `mydb`.`category` (`category_id`)
+    REFERENCES `anabada`.`category` (`category_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_used_user_location1`
     FOREIGN KEY (`uloc_id`)
-    REFERENCES `mydb`.`user_location` (`uloc_id`)
+    REFERENCES `anabada`.`user_location` (`uloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_used_sale_location1`
     FOREIGN KEY (`sloc_id`)
-    REFERENCES `mydb`.`sale_location` (`sloc_id`)
+    REFERENCES `anabada`.`sale_location` (`sloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`rental`
+-- Table `anabada`.`rental`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`rental` ;
+DROP TABLE IF EXISTS `anabada`.`rental` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`rental` (
+CREATE TABLE IF NOT EXISTS `anabada`.`rental` (
   `rental_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `category_id` VARCHAR(20) NOT NULL,
@@ -401,33 +401,33 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rental` (
   INDEX `fk_rental_sale_location1_idx` (`sloc_id` ASC) VISIBLE,
   CONSTRAINT `fk_rental_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_rental_category1`
     FOREIGN KEY (`category_id`)
-    REFERENCES `mydb`.`category` (`category_id`)
+    REFERENCES `anabada`.`category` (`category_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_rental_user_location1`
     FOREIGN KEY (`uloc_id`)
-    REFERENCES `mydb`.`user_location` (`uloc_id`)
+    REFERENCES `anabada`.`user_location` (`uloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_rental_sale_location1`
     FOREIGN KEY (`sloc_id`)
-    REFERENCES `mydb`.`sale_location` (`sloc_id`)
+    REFERENCES `anabada`.`sale_location` (`sloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`auction`
+-- Table `anabada`.`auction`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`auction` ;
+DROP TABLE IF EXISTS `anabada`.`auction` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`auction` (
+CREATE TABLE IF NOT EXISTS `anabada`.`auction` (
   `auction_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `category_id` VARCHAR(20) NOT NULL,
@@ -447,33 +447,33 @@ CREATE TABLE IF NOT EXISTS `mydb`.`auction` (
   INDEX `fk_auction_sale_location1_idx` (`sloc_id` ASC) VISIBLE,
   CONSTRAINT `fk_auction_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_auction_category1`
     FOREIGN KEY (`category_id`)
-    REFERENCES `mydb`.`category` (`category_id`)
+    REFERENCES `anabada`.`category` (`category_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_auction_user_location1`
     FOREIGN KEY (`uloc_id`)
-    REFERENCES `mydb`.`user_location` (`uloc_id`)
+    REFERENCES `anabada`.`user_location` (`uloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_auction_sale_location1`
     FOREIGN KEY (`sloc_id`)
-    REFERENCES `mydb`.`sale_location` (`sloc_id`)
+    REFERENCES `anabada`.`sale_location` (`sloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`review`
+-- Table `anabada`.`review`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`review` ;
+DROP TABLE IF EXISTS `anabada`.`review` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`review` (
+CREATE TABLE IF NOT EXISTS `anabada`.`review` (
   `review_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `review_person` VARCHAR(50) NOT NULL,
@@ -486,18 +486,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`review` (
   INDEX `fk_review_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_review_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`board_temp`
+-- Table `anabada`.`board_temp`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`board_temp` ;
+DROP TABLE IF EXISTS `anabada`.`board_temp` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`board_temp` (
+CREATE TABLE IF NOT EXISTS `anabada`.`board_temp` (
   `bTemp_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NULL,
   `bTemp_title` VARCHAR(100) NULL,
@@ -516,28 +516,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`board_temp` (
   INDEX `fk_board_temp_sale_location1_idx` (`sloc_id` ASC) VISIBLE,
   CONSTRAINT `fk_board_temp_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_board_temp_user_location1`
     FOREIGN KEY (`uloc_id`)
-    REFERENCES `mydb`.`user_location` (`uloc_id`)
+    REFERENCES `anabada`.`user_location` (`uloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_board_temp_sale_location1`
     FOREIGN KEY (`sloc_id`)
-    REFERENCES `mydb`.`sale_location` (`sloc_id`)
+    REFERENCES `anabada`.`sale_location` (`sloc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`wish`
+-- Table `anabada`.`wish`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`wish` ;
+DROP TABLE IF EXISTS `anabada`.`wish` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`wish` (
+CREATE TABLE IF NOT EXISTS `anabada`.`wish` (
   `wish_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
   `board_status` VARCHAR(45) NOT NULL,
@@ -546,18 +546,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`wish` (
   INDEX `fk_wish_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_wish_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`used_detail`
+-- Table `anabada`.`used_detail`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`used_detail` ;
+DROP TABLE IF EXISTS `anabada`.`used_detail` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`used_detail` (
+CREATE TABLE IF NOT EXISTS `anabada`.`used_detail` (
   `uDetail_id` VARCHAR(20) NOT NULL,
   `used_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
@@ -572,28 +572,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`used_detail` (
   INDEX `fk_used_detail_chat1_idx` (`chat_id` ASC) VISIBLE,
   CONSTRAINT `fk_used_detail_used1`
     FOREIGN KEY (`used_id`)
-    REFERENCES `mydb`.`used` (`used_id`)
+    REFERENCES `anabada`.`used` (`used_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_used_detail_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_used_detail_chat1`
     FOREIGN KEY (`chat_id`)
-    REFERENCES `mydb`.`chat` (`chat_id`)
+    REFERENCES `anabada`.`chat` (`chat_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`rental_detail`
+-- Table `anabada`.`rental_detail`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`rental_detail` ;
+DROP TABLE IF EXISTS `anabada`.`rental_detail` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`rental_detail` (
+CREATE TABLE IF NOT EXISTS `anabada`.`rental_detail` (
   `rDetail_id` VARCHAR(20) NOT NULL,
   `rental_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
@@ -609,28 +609,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rental_detail` (
   INDEX `fk_rental_detail_chat1_idx` (`chat_id` ASC) VISIBLE,
   CONSTRAINT `fk_rental_detail_rental1`
     FOREIGN KEY (`rental_id`)
-    REFERENCES `mydb`.`rental` (`rental_id`)
+    REFERENCES `anabada`.`rental` (`rental_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_rental_detail_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_rental_detail_chat1`
     FOREIGN KEY (`chat_id`)
-    REFERENCES `mydb`.`chat` (`chat_id`)
+    REFERENCES `anabada`.`chat` (`chat_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`auction_detail`
+-- Table `anabada`.`auction_detail`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`auction_detail` ;
+DROP TABLE IF EXISTS `anabada`.`auction_detail` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`auction_detail` (
+CREATE TABLE IF NOT EXISTS `anabada`.`auction_detail` (
   `aDetail_id` VARCHAR(20) NOT NULL,
   `auction_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
@@ -644,28 +644,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`auction_detail` (
   INDEX `fk_auction_detail_chat1_idx` (`chat_id` ASC) VISIBLE,
   CONSTRAINT `fk_auction_detail_auction1`
     FOREIGN KEY (`auction_id`)
-    REFERENCES `mydb`.`auction` (`auction_id`)
+    REFERENCES `anabada`.`auction` (`auction_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_auction_detail_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_auction_detail_chat1`
     FOREIGN KEY (`chat_id`)
-    REFERENCES `mydb`.`chat` (`chat_id`)
+    REFERENCES `anabada`.`chat` (`chat_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`auction_bid`
+-- Table `anabada`.`auction_bid`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`auction_bid` ;
+DROP TABLE IF EXISTS `anabada`.`auction_bid` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`auction_bid` (
+CREATE TABLE IF NOT EXISTS `anabada`.`auction_bid` (
   `aBid_id` VARCHAR(20) NOT NULL,
   `auction_id` VARCHAR(20) NOT NULL,
   `user_email` VARCHAR(50) NOT NULL,
@@ -676,23 +676,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`auction_bid` (
   INDEX `fk_auction_bid_user1_idx` (`user_email` ASC) VISIBLE,
   CONSTRAINT `fk_auction_bid_auction1`
     FOREIGN KEY (`auction_id`)
-    REFERENCES `mydb`.`auction` (`auction_id`)
+    REFERENCES `anabada`.`auction` (`auction_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_auction_bid_user1`
     FOREIGN KEY (`user_email`)
-    REFERENCES `mydb`.`user` (`user_email`)
+    REFERENCES `anabada`.`user` (`user_email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`uTrade`
+-- Table `anabada`.`uTrade`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`uTrade` ;
+DROP TABLE IF EXISTS `anabada`.`uTrade` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`uTrade` (
+CREATE TABLE IF NOT EXISTS `anabada`.`uTrade` (
   `uTrade_id` VARCHAR(20) NOT NULL,
   `used_id` VARCHAR(20) NOT NULL,
   `uDetail_id` VARCHAR(20) NOT NULL,
@@ -701,23 +701,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`uTrade` (
   INDEX `fk_uTrade_used_detail1_idx` (`uDetail_id` ASC) VISIBLE,
   CONSTRAINT `fk_uTrade_used1`
     FOREIGN KEY (`used_id`)
-    REFERENCES `mydb`.`used` (`used_id`)
+    REFERENCES `anabada`.`used` (`used_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_uTrade_used_detail1`
     FOREIGN KEY (`uDetail_id`)
-    REFERENCES `mydb`.`used_detail` (`uDetail_id`)
+    REFERENCES `anabada`.`used_detail` (`uDetail_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`rTrade`
+-- Table `anabada`.`rTrade`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`rTrade` ;
+DROP TABLE IF EXISTS `anabada`.`rTrade` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`rTrade` (
+CREATE TABLE IF NOT EXISTS `anabada`.`rTrade` (
   `rTrade_id` VARCHAR(20) NOT NULL,
   `rental_id` VARCHAR(20) NOT NULL,
   `rDetail_id` VARCHAR(20) NOT NULL,
@@ -726,23 +726,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rTrade` (
   INDEX `fk_rTrade_rental_detail1_idx` (`rDetail_id` ASC) VISIBLE,
   CONSTRAINT `fk_rTrade_rental1`
     FOREIGN KEY (`rental_id`)
-    REFERENCES `mydb`.`rental` (`rental_id`)
+    REFERENCES `anabada`.`rental` (`rental_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_rTrade_rental_detail1`
     FOREIGN KEY (`rDetail_id`)
-    REFERENCES `mydb`.`rental_detail` (`rDetail_id`)
+    REFERENCES `anabada`.`rental_detail` (`rDetail_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`aTrade`
+-- Table `anabada`.`aTrade`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`aTrade` ;
+DROP TABLE IF EXISTS `anabada`.`aTrade` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`aTrade` (
+CREATE TABLE IF NOT EXISTS `anabada`.`aTrade` (
   `aTrade_id` VARCHAR(20) NOT NULL,
   `auction_id` VARCHAR(20) NOT NULL,
   `aDetail_id` VARCHAR(20) NOT NULL,
@@ -751,12 +751,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`aTrade` (
   INDEX `fk_aTrade_auction_detail1_idx` (`aDetail_id` ASC) VISIBLE,
   CONSTRAINT `fk_aTrade_auction1`
     FOREIGN KEY (`auction_id`)
-    REFERENCES `mydb`.`auction` (`auction_id`)
+    REFERENCES `anabada`.`auction` (`auction_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_aTrade_auction_detail1`
     FOREIGN KEY (`aDetail_id`)
-    REFERENCES `mydb`.`auction_detail` (`aDetail_id`)
+    REFERENCES `anabada`.`auction_detail` (`aDetail_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

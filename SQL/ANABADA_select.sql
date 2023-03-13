@@ -1,7 +1,7 @@
 SELECT `atrade`.`aTrade_id`,
     `atrade`.`auction_id`,
     `atrade`.`aDetail_id`
-FROM `mydb`.`atrade`;
+FROM `anabada`.`atrade`;
 
 SELECT `auction`.`auction_id`,
     `auction`.`user_email`,
@@ -15,14 +15,14 @@ SELECT `auction`.`auction_id`,
     `auction`.`auction_status`,
     `auction`.`uloc_id`,
     `auction`.`sloc_id`
-FROM `mydb`.`auction`;
+FROM `anabada`.`auction`;
 
 SELECT `auction_bid`.`aBid_id`,
     `auction_bid`.`auction_id`,
     `auction_bid`.`user_email`,
     `auction_bid`.`bid_price`,
     `auction_bid`.`bid_date`
-FROM `mydb`.`auction_bid`;
+FROM `anabada`.`auction_bid`;
 
 SELECT `auction_detail`.`aDetail_id`,
     `auction_detail`.`auction_id`,
@@ -31,7 +31,7 @@ SELECT `auction_detail`.`aDetail_id`,
     `auction_detail`.`aDetail_addr`,
     `auction_detail`.`aDetail_price`,
     `auction_detail`.`aDetail_status`
-FROM `mydb`.`auction_detail`;
+FROM `anabada`.`auction_detail`;
 
 SELECT `board_temp`.`bTemp_id`,
     `board_temp`.`user_email`,
@@ -45,13 +45,13 @@ SELECT `board_temp`.`bTemp_id`,
     `board_temp`.`bTemp_finish`,
     `board_temp`.`uloc_id`,
     `board_temp`.`sloc_id`
-FROM `mydb`.`board_temp`;
+FROM `anabada`.`board_temp`;
 
 SELECT `category`.`category_id`,
     `category`.`category_main`,
     `category`.`category_mid`,
     `category`.`category_sub`
-FROM `mydb`.`category`;
+FROM `anabada`.`category`;
 
 SELECT `char_temp`.`cTemp_id`,
     `char_temp`.`user_email`,
@@ -61,7 +61,7 @@ SELECT `char_temp`.`cTemp_id`,
     `char_temp`.`cTemp_one`,
     `char_temp`.`cTemp_two`,
     `char_temp`.`cTemp_three`
-FROM `mydb`.`char_temp`;
+FROM `anabada`.`char_temp`;
 
 SELECT `character`.`char_id`,
     `character`.`char_name`,
@@ -70,30 +70,30 @@ SELECT `character`.`char_id`,
     `character`.`char_one`,
     `character`.`char_two`,
     `character`.`char_three`
-FROM `mydb`.`character`;
+FROM `anabada`.`character`;
 
 SELECT `chat`.`chat_id`,
     `chat`.`chatRoom_id`,
     `chat`.`user_email`,
     `chat`.`chat_contents`,
     `chat`.`chat_date`
-FROM `mydb`.`chat`;
+FROM `anabada`.`chat`;
 
 SELECT `chatroom`.`chatRoom_id`,
     `chatroom`.`user_email`,
     `chatroom`.`chatRoom_date`
-FROM `mydb`.`chatroom`;
+FROM `anabada`.`chatroom`;
 
 SELECT `egg`.`egg_id`,
     `egg`.`egg_file`
-FROM `mydb`.`egg`;
+FROM `anabada`.`egg`;
 
 SELECT `file`.`file_id`,
     `file`.`board_status`,
     `file`.`board_no`,
     `file`.`file_origin`,
     `file`.`file_saved`
-FROM `mydb`.`file`;
+FROM `anabada`.`file`;
 
 SELECT `inquiry`.`inq_id`,
     `inquiry`.`user_email`,
@@ -102,13 +102,13 @@ SELECT `inquiry`.`inq_id`,
     `inquiry`.`inq_content`,
     `inquiry`.`inq_answer`,
     `inquiry`.`inq_status`
-FROM `mydb`.`inquiry`;
+FROM `anabada`.`inquiry`;
 
 SELECT `location`.`loc_id`,
     `location`.`loc_name`,
     `location`.`loc_lat`,
     `location`.`loc_lon`
-FROM `mydb`.`location`;
+FROM `anabada`.`location`;
 
 SELECT `rental`.`rental_id`,
     `rental`.`user_email`,
@@ -123,7 +123,7 @@ SELECT `rental`.`rental_id`,
     `rental`.`rental_status`,
     `rental`.`uloc_id`,
     `rental`.`sloc_id`
-FROM `mydb`.`rental`;
+FROM `anabada`.`rental`;
 
 SELECT `rental_detail`.`rDetail_id`,
     `rental_detail`.`rental_id`,
@@ -134,7 +134,7 @@ SELECT `rental_detail`.`rDetail_id`,
     `rental_detail`.`rDetail_status`,
     `rental_detail`.`rDetail_sDate`,
 	`rental_detail`.`rDetail_eDate`
-FROM `mydb`.`rental_detail`;
+FROM `anabada`.`rental_detail`;
 
 SELECT `report`.`report_id`,
     `report`.`user_email`,
@@ -144,7 +144,7 @@ SELECT `report`.`report_id`,
     `report`.`report_comment`,
     `report`.`report_answer`,
     `report`.`report_status`
-FROM `mydb`.`report`;
+FROM `anabada`.`report`;
 
 SELECT `review`.`review_id`,
     `review`.`user_email`,
@@ -154,17 +154,17 @@ SELECT `review`.`review_id`,
     `review`.`review_moment`,
     `review`.`review_star`,
     `review`.`review_comment`
-FROM `mydb`.`review`;
+FROM `anabada`.`review`;
 
 SELECT `rtrade`.`rTrade_id`,
     `rtrade`.`rental_id`,
     `rtrade`.`rDetail_id`
-FROM `mydb`.`rtrade`;
+FROM `anabada`.`rtrade`;
 
 SELECT `sale_location`.`sloc_id`,
     `sale_location`.`loc_id`,
     `sale_location`.`user_email`
-FROM `mydb`.`sale_location`;
+FROM `anabada`.`sale_location`;
 
 SELECT `used`.`used_id`,
     `used`.`user_email`,
@@ -177,7 +177,7 @@ SELECT `used`.`used_id`,
     `used`.`used_status`,
     `used`.`uloc_id`,
     `used`.`sloc_id`
-FROM `mydb`.`used`;
+FROM `anabada`.`used`;
 
 SELECT `used_buy`.`uBuy_id`,
     `used_buy`.`user_email`,
@@ -185,7 +185,7 @@ SELECT `used_buy`.`uBuy_id`,
     `used_buy`.`uBuy_title`,
     `used_buy`.`uBuy_content`,
     `used_buy`.`uBuy_status`
-FROM `mydb`.`used_buy`;
+FROM `anabada`.`used_buy`;
 
 SELECT `used_detail`.`uDetail_id`,
     `used_detail`.`used_id`,
@@ -195,7 +195,7 @@ SELECT `used_detail`.`uDetail_id`,
     `used_detail`.`chat_id`,
     `used_detail`.`uDetail_price`,
     `used_detail`.`uDetail_status`
-FROM `mydb`.`used_detail`;
+FROM `anabada`.`used_detail`;
 
 SELECT `user`.`user_email`,
     `user`.`user_nick`,
@@ -209,25 +209,25 @@ SELECT `user`.`user_email`,
     `user`.`user_role`,
     `user`.`user_nation`,
     `user`.`user_date`
-FROM `mydb`.`user`;
+FROM `anabada`.`user`;
 
 SELECT `user_character`.`uChar_id`,
     `user_character`.`user_email`,
     `user_character`.`character_char_id`
-FROM `mydb`.`user_character`;
+FROM `anabada`.`user_character`;
 
 SELECT `user_location`.`uloc_id`,
     `user_location`.`loc_id`,
     `user_location`.`user_email`
-FROM `mydb`.`user_location`;
+FROM `anabada`.`user_location`;
 
 SELECT `utrade`.`uTrade_id`,
     `utrade`.`used_id`,
     `utrade`.`uDetail_id`
-FROM `mydb`.`utrade`;
+FROM `anabada`.`utrade`;
 
 SELECT `wish`.`wish_id`,
     `wish`.`user_email`,
     `wish`.`board_status`,
     `wish`.`board_no`
-FROM `mydb`.`wish`;
+FROM `anabada`.`wish`;

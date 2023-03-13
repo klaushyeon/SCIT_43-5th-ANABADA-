@@ -1,9 +1,9 @@
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `anabada`.`user`
 -- -----------------------------------------------------
-DELETE FROM `mydb`.`user`;
+DELETE FROM `anabada`.`user`;
 
-INSERT INTO `mydb`.`user`
+INSERT INTO `anabada`.`user`
 (`user_email`,
 `user_nick`,
 `user_pwd`,
@@ -20,7 +20,7 @@ VALUES
 );
 
 
-INSERT INTO `mydb`.`user`
+INSERT INTO `anabada`.`user`
 (`user_email`,
 `user_nick`,
 `user_pwd`,
@@ -37,11 +37,11 @@ VALUES
 );
 
 -- -----------------------------------------------------
--- Table `mydb`.`character`
+-- Table `anabada`.`character`
 -- -----------------------------------------------------
-DELETE FROM `mydb`.`character`;
+DELETE FROM `anabada`.`character`;
 
-INSERT INTO `mydb`.`character`
+INSERT INTO `anabada`.`character`
 (`char_id`,
 `char_name`,
 `char_grade`,
@@ -58,12 +58,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`user_character`
+-- Table `anabada`.`user_character`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`user_character`;
+DELETE FROM `anabada`.`user_character`;
 
-INSERT INTO `mydb`.`user_character`
+INSERT INTO `anabada`.`user_character`
 (`uChar_id`,
 `user_email`,
 `character_char_id`)
@@ -74,12 +74,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`char_temp`
+-- Table `anabada`.`char_temp`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`char_temp`;
+DELETE FROM `anabada`.`char_temp`;
 
-INSERT INTO `mydb`.`char_temp`
+INSERT INTO `anabada`.`char_temp`
 (`cTemp_id`,
 `user_email`,
 `cTemp_name`,
@@ -99,12 +99,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`egg`
+-- Table `anabada`.`egg`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`egg`;
+DELETE FROM `anabada`.`egg`;
 
-INSERT INTO `mydb`.`egg`
+INSERT INTO `anabada`.`egg`
 (`egg_id`,
 `egg_file`)
 VALUES
@@ -112,12 +112,12 @@ VALUES
 'egg.jpg');
 
 -- -----------------------------------------------------
--- Table `mydb`.`inquiry`
+-- Table `anabada`.`inquiry`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`inquiry`;
+DELETE FROM `anabada`.`inquiry`;
 
-INSERT INTO `mydb`.`inquiry`
+INSERT INTO `anabada`.`inquiry`
 (`inq_id`,
 `user_email`,
 `inq_category`,
@@ -134,12 +134,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`report`
+-- Table `anabada`.`report`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`report`;
+DELETE FROM `anabada`.`report`;
 
-INSERT INTO `mydb`.`report`
+INSERT INTO `anabada`.`report`
 (`report_id`,
 `user_email`,
 `report_reported`,
@@ -158,12 +158,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`file`
+-- Table `anabada`.`file`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`file`;
+DELETE FROM `anabada`.`file`;
 
-INSERT INTO `mydb`.`file`
+INSERT INTO `anabada`.`file`
 (`file_id`,
 `board_status`,
 `board_no`,
@@ -178,11 +178,11 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`chatRoom`
+-- Table `anabada`.`chatRoom`
 -- -----------------------------------------------------
-DELETE FROM `mydb`.`chatroom`;
+DELETE FROM `anabada`.`chatroom`;
 
-INSERT INTO `mydb`.`chatroom`
+INSERT INTO `anabada`.`chatroom`
 (`chatRoom_id`,
 `user_email`)
 VALUES
@@ -190,12 +190,12 @@ VALUES
 'anabada@gmail.com');
 
 -- -----------------------------------------------------
--- Table `mydb`.`chat`
+-- Table `anabada`.`chat`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`chat`;
+DELETE FROM `anabada`.`chat`;
 
-INSERT INTO `mydb`.`chat`
+INSERT INTO `anabada`.`chat`
 (`chat_id`,
 `chatRoom_id`,
 `user_email`,
@@ -208,12 +208,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`category`
+-- Table `anabada`.`category`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`category`;
+DELETE FROM `anabada`.`category`;
 
-INSERT INTO `mydb`.`category`
+INSERT INTO `anabada`.`category`
 (`category_id`,
 `category_main`,
 `category_mid`,
@@ -226,12 +226,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`used_buy`
+-- Table `anabada`.`used_buy`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`used_buy`;
+DELETE FROM `anabada`.`used_buy`;
 
-INSERT INTO `mydb`.`used_buy`
+INSERT INTO `anabada`.`used_buy`
 (`uBuy_id`,
 `user_email`,
 `category_id`,
@@ -245,12 +245,12 @@ VALUES
 '아이폰 12pro 3만원에 삼');
 
 -- -----------------------------------------------------
--- Table `mydb`.`location`
+-- Table `anabada`.`location`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`location`;
+DELETE FROM `anabada`.`location`;
 
-INSERT INTO `mydb`.`location`
+INSERT INTO `anabada`.`location`
 (`loc_id`,
 `loc_name`,
 `loc_lat`,
@@ -262,13 +262,13 @@ VALUES
 '127.0592');
 
 -- -----------------------------------------------------
--- Table `mydb`.`user_location`
+-- Table `anabada`.`user_location`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`user_location`;
+DELETE FROM `anabada`.`user_location`;
 
 
-INSERT INTO `mydb`.`user_location`
+INSERT INTO `anabada`.`user_location`
 (`uloc_id`,
 `loc_id`,
 `user_email`)
@@ -280,12 +280,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`sale_location`
+-- Table `anabada`.`sale_location`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`sale_location`;
+DELETE FROM `anabada`.`sale_location`;
 
-INSERT INTO `mydb`.`sale_location`
+INSERT INTO `anabada`.`sale_location`
 (`sloc_id`,
 `loc_id`,
 `user_email`)
@@ -296,13 +296,13 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`used`
+-- Table `anabada`.`used`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`used`;
+DELETE FROM `anabada`.`used`;
 
 
-INSERT INTO `mydb`.`used`
+INSERT INTO `anabada`.`used`
 (`used_id`,
 `user_email`,
 `category_id`,
@@ -325,13 +325,13 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`rental`
+-- Table `anabada`.`rental`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`rental`;
+DELETE FROM `anabada`.`rental`;
 
 
-INSERT INTO `mydb`.`rental`
+INSERT INTO `anabada`.`rental`
 (`rental_id`,
 `user_email`,
 `category_id`,
@@ -358,12 +358,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`auction`
+-- Table `anabada`.`auction`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`auction`;
+DELETE FROM `anabada`.`auction`;
 
-INSERT INTO `mydb`.`auction`
+INSERT INTO `anabada`.`auction`
 (`auction_id`,
 `user_email`,
 `category_id`,
@@ -388,13 +388,13 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`review`
+-- Table `anabada`.`review`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`review`;
+DELETE FROM `anabada`.`review`;
 
 
-INSERT INTO `mydb`.`review`
+INSERT INTO `anabada`.`review`
 (`review_id`,
 `user_email`,
 `review_person`,
@@ -413,12 +413,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`board_temp`
+-- Table `anabada`.`board_temp`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`board_temp`;
+DELETE FROM `anabada`.`board_temp`;
 
-INSERT INTO `mydb`.`board_temp`
+INSERT INTO `anabada`.`board_temp`
 (`bTemp_id`,
 `user_email`,
 `bTemp_title`,
@@ -437,12 +437,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`wish`
+-- Table `anabada`.`wish`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`wish`;
+DELETE FROM `anabada`.`wish`;
 
-INSERT INTO `mydb`.`wish`
+INSERT INTO `anabada`.`wish`
 (`wish_id`,
 `user_email`,
 `board_status`,
@@ -455,13 +455,13 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`used_detail`
+-- Table `anabada`.`used_detail`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`used_detail`;
+DELETE FROM `anabada`.`used_detail`;
 
 
-INSERT INTO `mydb`.`used_detail`
+INSERT INTO `anabada`.`used_detail`
 (`uDetail_id`,
 `used_id`,
 `user_email`,
@@ -480,12 +480,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`rental_detail`
+-- Table `anabada`.`rental_detail`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`rental_detail`;
+DELETE FROM `anabada`.`rental_detail`;
 
-INSERT INTO `mydb`.`rental_detail`
+INSERT INTO `anabada`.`rental_detail`
 (`rDetail_id`,
 `rental_id`,
 `user_email`,
@@ -506,13 +506,13 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`auction_detail`
+-- Table `anabada`.`auction_detail`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`auction_detail`;
+DELETE FROM `anabada`.`auction_detail`;
 
 
-INSERT INTO `mydb`.`auction_detail`
+INSERT INTO `anabada`.`auction_detail`
 (`aDetail_id`,
 `auction_id`,
 `user_email`,
@@ -530,12 +530,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`auction_bid`
+-- Table `anabada`.`auction_bid`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`auction_bid`;
+DELETE FROM `anabada`.`auction_bid`;
 
-INSERT INTO `mydb`.`auction_bid`
+INSERT INTO `anabada`.`auction_bid`
 (`aBid_id`,
 `auction_id`,
 `user_email`,
@@ -549,12 +549,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`uTrade`
+-- Table `anabada`.`uTrade`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`utrade`;
+DELETE FROM `anabada`.`utrade`;
 
-INSERT INTO `mydb`.`utrade`
+INSERT INTO `anabada`.`utrade`
 (`uTrade_id`,
 `used_id`,
 `uDetail_id`)
@@ -565,12 +565,12 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`rTrade`
+-- Table `anabada`.`rTrade`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`rtrade`;
+DELETE FROM `anabada`.`rtrade`;
 
-INSERT INTO `mydb`.`rtrade`
+INSERT INTO `anabada`.`rtrade`
 (`rTrade_id`,
 `rental_id`,
 `rDetail_id`)
@@ -581,13 +581,13 @@ VALUES
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`aTrade`
+-- Table `anabada`.`aTrade`
 -- -----------------------------------------------------
 
-DELETE FROM `mydb`.`atrade`;
+DELETE FROM `anabada`.`atrade`;
 
 
-INSERT INTO `mydb`.`atrade`
+INSERT INTO `anabada`.`atrade`
 (`aTrade_id`,
 `auction_id`,
 `aDetail_id`)
