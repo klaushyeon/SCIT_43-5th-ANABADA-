@@ -677,7 +677,7 @@ public class MyPageController {
 	 * @return
 	 */
 	@GetMapping({"/imgshowone"})
-	public String download(HttpServletResponse response, String used_id, String rental_id, String auction_id) {
+	public void download(HttpServletResponse response, String used_id, String rental_id, String auction_id) {
 		//		log.info(index+"");
 
 		if(used_id != null) {
@@ -697,7 +697,6 @@ public class MyPageController {
 				in.close();
 				out.close();
 			} catch (Exception e) {
-				return "redirect:/";
 			}
 		}
 		
@@ -718,7 +717,6 @@ public class MyPageController {
 				in.close();
 				out.close();
 			} catch (Exception e) {
-				return "redirect:/";
 			}
 		}
 		
@@ -739,10 +737,8 @@ public class MyPageController {
 				in.close();
 				out.close();
 			} catch (Exception e) {
-				return "redirect:/";
 			}
 		}
-		return "redirect:/";
 	}
 	
 	/**

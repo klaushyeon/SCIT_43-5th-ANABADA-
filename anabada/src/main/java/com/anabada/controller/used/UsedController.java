@@ -522,7 +522,7 @@ public class UsedController {
 	}
 
 	@GetMapping({ "/imgshow" })
-	public String download(HttpServletResponse response, String used_id) {
+	public void download(HttpServletResponse response, String used_id) {
 		ArrayList<File> fileList = service.fileList();
 
 		for (int i = 0; i < fileList.size(); ++i) {
@@ -556,14 +556,12 @@ public class UsedController {
 			in.close();
 			out.close();
 		} catch (Exception e) {
-			return "redirect:/";
 
 		}
-		return "redirect:/";
 	}
 
 	@GetMapping({ "/imgshowone" })
-	public String download(HttpServletResponse response, String used_id, int index) {
+	public void download(HttpServletResponse response, String used_id, int index) {
 		log.info(index + "");
 
 		ArrayList<File> fileList = service.fileListByid(used_id);
@@ -583,10 +581,8 @@ public class UsedController {
 			in.close();
 			out.close();
 		} catch (Exception e) {
-			return "redirect:/";
 
 		}
-		return "redirect:/";
 	}
 	
 	@GetMapping("charge")

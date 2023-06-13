@@ -447,7 +447,7 @@ public class RentController {
 	}
 
 	@GetMapping({ "/imgshow" })
-	public String download(HttpServletResponse response, String rental_id) {
+	public void download(HttpServletResponse response, String rental_id) {
 		ArrayList<File> fileList = service.fileList();
 
 		for (int i = 0; i < fileList.size(); ++i) {
@@ -481,13 +481,11 @@ public class RentController {
 			in.close();
 			out.close();
 		} catch (Exception e) {
-			return "redirect:/";
 		}
-		return "redirect:/";
 	}
 
 	@GetMapping({ "/imgshowone" })
-	public String download(HttpServletResponse response, String rental_id, int index) {
+	public void download(HttpServletResponse response, String rental_id, int index) {
 		log.info(index + "");
 
 		ArrayList<File> fileList = service.fileListByid(rental_id);
@@ -507,9 +505,7 @@ public class RentController {
 			in.close();
 			out.close();
 		} catch (Exception e) {
-			return "redirect:/";
 		}
-		return "redirect:/";
 	}
 	
 	@GetMapping("charge")

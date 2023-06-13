@@ -49,7 +49,7 @@ public class MapController {
     }
 
     @GetMapping({"/imgShow"})
-    public String imgShow(HttpServletResponse response, String board_no) {
+    public void imgShow(HttpServletResponse response, String board_no) {
 		ArrayList<File> fileList = fservice.fileList();
 
 		int index = 0;
@@ -76,9 +76,7 @@ public class MapController {
 			in.close();
 			out.close();
 		} catch (Exception e) {
-			return "redirect:/";
 
 		}
-		return "redirect:/";
 	}
 }

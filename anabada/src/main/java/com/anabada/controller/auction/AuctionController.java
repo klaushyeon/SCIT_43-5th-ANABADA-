@@ -421,7 +421,7 @@ public class AuctionController {
 	}
 
 	@GetMapping({ "/imgshow" })
-	public String download(HttpServletResponse response, String auction_id) {
+	public void download(HttpServletResponse response, String auction_id) {
 		ArrayList<File> fileList = service.fileList();
 
 		for (int i = 0; i < fileList.size(); ++i) {
@@ -455,13 +455,11 @@ public class AuctionController {
 			in.close();
 			out.close();
 		} catch (Exception e) {
-			return "redirect:/";
 		}
-		return "redirect:/";
 	}
 
 	@GetMapping({ "/imgshowone" })
-	public String download(HttpServletResponse response, String auction_id, int index) {
+	public void download(HttpServletResponse response, String auction_id, int index) {
 		log.info(index + "");
 
 		ArrayList<File> fileList = service.fileListByid(auction_id);
@@ -481,9 +479,7 @@ public class AuctionController {
 			in.close();
 			out.close();
 		} catch (Exception e) {
-			return "redirect:/";
 		}
-		return "redirect:/";
 	}
 	
 	@GetMapping("charge")
